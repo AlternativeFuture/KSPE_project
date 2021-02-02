@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import University
 from .forms import UniversityForm
@@ -23,9 +23,6 @@ def create_university(request):
     if request.method == "POST":
         form = UniversityForm(request.POST)
         if form.is_valid():
-            # if len(form.cleaned_data["subject"].split()) < 2:
-            #     return HttpResponse("You must provide min 2 subject")
-            print(form.cleaned_data["subject"])
             car_obj = form.save()
             car_obj.save()
             return HttpResponseRedirect('/')

@@ -3,15 +3,12 @@
         <div>
             <form action="." method="POST">
             <div>
-            {% csrf_token %}
-            {{ form.as_p }}
+                {% csrf_token %}
+
+                {{ form.as_p }}
 
             </div>
-                <div>
-                    {% for errors in form..errors %}
-                        <p> {{ error }} </p>
-                    {% endfor %}
-                </div>
+
             <div>
                 <input type="submit" value="Submit">
             </div>
