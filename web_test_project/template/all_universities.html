@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% if user.is_authenticated %}
+            <a href="/account/logout">logout</a>
+        {% else %}
+            <a href="/account/login">login</a>
+            <a href="/account/register">register</a>
+        {% endif %}
+    {% block content %}
+    {% endblock %}
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>University</title>
+    <h1>Universities</h1>
+</head>
+<body>
+
+
+    <div>
+
+         <table>
+             <tr> <th>Name</th>  <th>Subject</th> </tr>
+             {% for u in university %}
+             <tr>
+                 <th><a href="/{{u.id}}"> {{u.name}} </a> </th>
+                 <th><a href="/{{u.id}}"> {{u.subject}} </a> </th>
+             </tr>
+             {% endfor %}
+         </table>
+        <br>
+        <br>
+        <a href="/create/">  Create university  </a>
+
+    </div>
+</body>
+</html>

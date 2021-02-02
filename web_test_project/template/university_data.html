@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+        <h2> Name: {{ university.name }}</h2>
+        <h3> Address: {{ university.address }}</h3>
+        <h3> Subjects: {{ university.subject }}</h3>
+
+        <a href="/del_university/{{university.id}}" >Delete</a>
+{% endblock %}
